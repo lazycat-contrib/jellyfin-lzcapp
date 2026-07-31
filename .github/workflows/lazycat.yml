@@ -4,6 +4,15 @@ on:
   schedule:
     - cron: "29 3 * * *"
   workflow_dispatch:
+    inputs:
+      operation:
+        description: "Use build to publish the version already pinned in package.yml"
+        required: false
+        default: auto
+        type: choice
+        options:
+          - auto
+          - build
 
 permissions:
   contents: write
@@ -13,7 +22,7 @@ jobs:
   lazycat:
     uses: ca-x/lazycat-github-action/.github/workflows/lazycat.yml@v1
     with:
-      operation: auto
+      operation: ${{ inputs.operation || 'auto' }}
       config: .github/lazycat-action.yml
       versioned-release-asset: true
     secrets:
