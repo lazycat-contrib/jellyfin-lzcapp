@@ -16,8 +16,8 @@ application:
 
 services:
   jellyfin:
-    # upstream: jellyfin/jellyfin:10.11
-    image: docker.1ms.run/jellyfin/jellyfin:10.11
+    # upstream: jellyfin/jellyfin:10.11.11
+    image: docker.1ms.run/jellyfin/jellyfin:10.11.11
     environment:
       - JELLYFIN_PublishedServerUrl=https://{{ .S.AppDomain }}
     binds:

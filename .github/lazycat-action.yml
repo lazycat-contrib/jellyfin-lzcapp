@@ -13,7 +13,6 @@ update:
   version_source:
     type: image
     image: jellyfin
-    bump: patch
 
 build:
   toolchains: []
@@ -24,9 +23,7 @@ images:
     target: service
     service: jellyfin
     source: jellyfin/jellyfin
-    channel: custom
-    tag_regex: '^10\.11$'
-    sort: created
+    channel: stable
     delivery:
       mode: mirror
       image_template: docker.1ms.run/jellyfin/jellyfin:{tag}

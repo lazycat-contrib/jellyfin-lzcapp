@@ -6,7 +6,7 @@
 
 - 包名：`community.lazycat.app.jellyfin`
 - 当前应用版本：`10.11.11`
-- 运行镜像：`docker.1ms.run/jellyfin/jellyfin:10.11`
+- 运行镜像：`docker.1ms.run/jellyfin/jellyfin:10.11.11`
 - 架构：`amd64`
 - 配置目录：`/lzcapp/var/config`
 - 缓存目录：`/lzcapp/cache`
@@ -27,7 +27,7 @@ lzc-cli lpk info dist/application.lpk
 
 ## 自动发布
 
-GitHub Actions 跟踪上游 `jellyfin/jellyfin:10.11` 的镜像 digest。标签内容变化时自动递增补丁版本，生成带版本号的 GitHub Release LPK，并且只发布到喵喵私有应用商店。运行镜像通过 1ms 镜像地址直接交付，不会复制到懒猫镜像仓库，也不会发布到懒猫官方商店。
+GitHub Actions 跟踪上游 `jellyfin/jellyfin` 的稳定版本，生成带版本号的 GitHub Release LPK，并且只发布到喵喵私有应用商店。当前运行镜像固定为 `10.11.11`，通过 1ms 镜像地址直接交付，不会复制到懒猫镜像仓库，也不会发布到懒猫官方商店。
 
 仓库使用以下 GitHub Secrets：
 
