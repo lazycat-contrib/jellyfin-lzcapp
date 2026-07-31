@@ -1,0 +1,30 @@
+params:
+  - id: media_dir
+    type: string
+    name: "Primary Media Directory"
+    description: "Writable primary media folder under your LazyCat home directory. The folder must already exist."
+    default_value: "Media"
+
+  - id: media2_dir
+    type: string
+    name: "Secondary Media Directory"
+    description: "Read-only secondary media folder under your LazyCat home directory. The folder must already exist."
+    default_value: "Media2"
+
+  - id: fonts_dir
+    type: string
+    name: "Custom Fonts Directory"
+    description: "Read-only custom fonts folder under your LazyCat home directory. The folder must already exist."
+    default_value: "Fonts"
+
+locales:
+  zh:
+    media_dir:
+      name: "主媒体目录"
+      description: "懒猫个人目录中的可写主媒体文件夹；安装前请确保该文件夹已存在。"
+    media2_dir:
+      name: "第二媒体目录"
+      description: "懒猫个人目录中的只读第二媒体文件夹；安装前请确保该文件夹已存在。"
+    fonts_dir:
+      name: "自定义字体目录"
+      description: "懒猫个人目录中的只读自定义字体文件夹；安装前请确保该文件夹已存在。"

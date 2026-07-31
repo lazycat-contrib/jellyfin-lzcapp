@@ -1,0 +1,45 @@
+version: 1
+
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: dist/application.lpk
+  target_arch: amd64
+
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: jellyfin
+    bump: patch
+
+build:
+  toolchains: []
+  run_buildscript: false
+
+images:
+  - id: jellyfin
+    target: service
+    service: jellyfin
+    source: jellyfin/jellyfin
+    channel: custom
+    tag_regex: '^10\.11$'
+    sort: created
+    delivery:
+      mode: mirror
+      image_template: docker.1ms.run/jellyfin/jellyfin:{tag}
+      require_digest_match: true
+
+stores:
+  official:
+    enabled: false
+    skip_if_version_exists: false
+    retry:
+      enabled: false
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: Jellyfin
+    summary: Published from GitHub Actions

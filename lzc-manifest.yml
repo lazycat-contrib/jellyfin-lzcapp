@@ -1,0 +1,34 @@
+application:
+  subdomain: jellyfin
+  multi_instance: true
+  background_task: true
+  gpu_accel: true
+  upstreams:
+    - location: /
+      backend: http://jellyfin:8096/
+  public_path:
+    - /
+  ingress:
+    - protocol: udp
+      port: 7359
+      service: jellyfin
+      description: "Jellyfin client discovery"
+
+services:
+  jellyfin:
+    # upstream: jellyfin/jellyfin:10.11
+    image: docker.1ms.run/jellyfin/jellyfin:10.11
+    environment:
+      - JELLYFIN_PublishedServerUrl=https://{{ .S.AppDomain }}
+    binds:
+      - /lzcapp/var/config:/config
+      - /lzcapp/cache:/cache
+      - /lzcapp/run/mnt/home/{{ .U.media_dir }}:/media
+      - /lzcapp/run/mnt/home/{{ .U.media2_dir }}:/media2:ro
+      - /lzcapp/run/mnt/home/{{ .U.fonts_dir }}:/usr/local/share/fonts/custom:ro
+
+ext_config:
+  enable_document_access: true
+
+usage: |
+  安装后请立即打开 Jellyfin，使用其原生初始化向导创建管理员并添加媒体库。容器中的 /media、/media2 和 /usr/local/share/fonts/custom 分别对应安装向导选择的个人目录。为兼容 Jellyfin 原生客户端和局域网发现，应用接口允许客户端直接访问，因此不要让未初始化的实例长时间运行。
