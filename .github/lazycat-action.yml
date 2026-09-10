@@ -23,9 +23,11 @@ images:
     target: service
     service: jellyfin
     source: jellyfin/jellyfin
-    channel: stable
+    channel: custom
     sort: semver
-    tag_regex: '^v?\d+\.\d+\.\d+$'
+    tag_regex: '^\d+\.\d+$'
+    version_regex: '^(?P<version>\d+\.\d+)$'
+    version_template: '{version}.0'
     # Jellyfin has over 13,000 tags, including development builds.
     max_tags: 20000
     delivery:
