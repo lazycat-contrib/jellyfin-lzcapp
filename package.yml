@@ -1,12 +1,11 @@
 package: community.lazycat.app.jellyfin
-version: 10.11.11
+version: 12.0.0
 name: Jellyfin
 description: "A suite of multimedia applications"
 min_os_version: 1.5.0
 author: Jellyfin Team
 homepage: https://jellyfin.org
 license: GPL-2.0-only
-
 locales:
   zh:
     name: "Jellyfin"
@@ -14,7 +13,6 @@ locales:
   en:
     name: "Jellyfin"
     description: "A suite of multimedia applications"
-
 permissions:
   required:
     - net.internet
