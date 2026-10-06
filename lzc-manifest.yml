@@ -15,8 +15,8 @@ application:
       description: "Jellyfin client discovery"
 services:
   jellyfin:
-    # upstream: jellyfin/jellyfin:12.1
-    image: docker.1ms.run/jellyfin/jellyfin:12.1
+    # upstream: jellyfin/jellyfin:12.2
+    image: docker.1ms.run/jellyfin/jellyfin:12.2
     environment:
       - JELLYFIN_PublishedServerUrl=https://{{ .S.AppDomain }}
     binds:
